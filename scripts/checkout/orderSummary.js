@@ -5,10 +5,7 @@ import {hello} from 'https://unpkg.com/supersimpledev@1.0.1/hello.esm.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import {deliveryOptions,getDeliveryOption} from '../../data/deliveryOptions.js';
 import { renderPaymentSummary } from './paymentSummary.js';
-hello();
-const today=dayjs();
-const deliveryDate=today.add(7,'days');
-console.log(deliveryDate.format('dddd,MMMM D'));
+
 updateCartQuantity();
 function Totalquantity(){
   let cartQuantity=0;
@@ -113,6 +110,7 @@ document.querySelectorAll('.js-delete-link').forEach((link)=>{
    const container =document.querySelector(`.js-cart-item-container-${productId}`);
      container.remove();
      updateCartQuantity();
+     renderPaymentSummary();
   });
 });
 document.querySelectorAll('.js-update-quantity-link').forEach((link)=>{
@@ -120,6 +118,7 @@ document.querySelectorAll('.js-update-quantity-link').forEach((link)=>{
   const productId=link.dataset.productId;
   const container = document.querySelector(`.js-cart-item-container-${productId}`);
   container.classList.add('is-editing-quantity');
+  
   });
 
 });
@@ -133,6 +132,7 @@ link.addEventListener('click',()=>{
   document.querySelector(`.js-quantity-label-${productId}`).innerHTML=newQuantity;
   updateQuantity(productId,newQuantity);
   updateCartQuantity();
+  renderPaymentSummary();
   
 });
 })
@@ -144,6 +144,7 @@ document.querySelectorAll('.js-delivery-option').forEach((element)=>{
 
 updateDeliveryOption(productId,deliveryOptionId);
 renderOrderSummary();
+renderPaymentSummary();
 
   });
 
