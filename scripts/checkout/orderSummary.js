@@ -53,7 +53,7 @@ cart.forEach((cartItem)=>{
                   ${matchingProduct.name}
                 </div>
                 <div class="product-price">$${formatCurrency(matchingProduct.priceCents)}</div>
-                <div class="product-quantity">
+                <div class="product-quantity js-product-quantity-${matchingProduct.id}">
                   <span> Quantity: <span class="quantity-label js-quantity-label-${matchingProduct.id} ">${cartItem.quantity}</span> </span>
                   <span class="update-quantity-link link-primary js-update-quantity-link" data-product-id='${matchingProduct.id}'>
                     Update

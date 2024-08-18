@@ -24,7 +24,7 @@ export function renderCheckoutHeader(){
           >${cartQuantity} items</a
           >)
         </div>
-
+        
         <div class="checkout-header-right-section">
           <img src="images/icons/checkout-lock-icon.png" />
         </div>
